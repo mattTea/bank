@@ -78,3 +78,5 @@ Initialise git and create github repo
 ## Simple first steps to build first tests
 
 1. New bank account is a type of Account
+
+2. New bank account has a balance of 0
