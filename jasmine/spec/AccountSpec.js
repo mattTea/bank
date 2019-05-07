@@ -22,13 +22,21 @@ describe("Account", function() {
 
   it("records date of deposit", function() {
     account.deposit(100, "06/05/2019")
-    expect(account.deposits[0].date).toEqual("06/05/2019")
+    expect(account.transactions[0].date).toEqual("06/05/2019")
   })
 
   it("records date of withdrawal", function() {
-    var date = new Date("2019-05-07");
-    account.deposit(100)
+    var date = new Date("2019-05-07")
+    account.deposit(100, date)
     account.withdraw(40, date)
-    expect(account.withdrawals[0].date).toEqual("07/05/2019")
+    expect(account.transactions[1].date).toEqual("07/05/2019")
+  })
+
+  it("adds deposit and withdrawal to transactions", function() {
+    var date1 = new Date("2019-05-06")
+    var date2 = new Date("2019-05-07")
+    account.deposit(100, date1)
+    account.withdraw(40, date2)
+    expect(account.transactions.length).toEqual(2)
   })
 })

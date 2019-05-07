@@ -89,6 +89,14 @@ Initialise git and create github repo
 
 6. Record date of withdrawal
 
+7. Print statement shows all activity on account
+    - Break this down...
+
+    1. account.activity is an array
+    2. account.activity is of length deposits.length + withdrawals + length
+    3. actually, just join deposits and withdrawals into one 'transactions' array (with a type attribute for each)
+    2. account.printStatement is ordered with newest first
+
 
 ### Edge cases
 

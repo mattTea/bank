@@ -1,7 +1,6 @@
 function Account() {
   this.balance = 0
-  this.deposits = []
-  this.withdrawals = []
+  this.transactions = []
 }
 
 Account.prototype = {
@@ -10,19 +9,21 @@ Account.prototype = {
   deposit: function(amount, date = new Date) {
     this.balance += amount
     var deposit = {
+      type: "credit",
       amount: amount,
       date: date
     }
-    this.deposits.push(deposit)
+    this.transactions.push(deposit)
   },
 
   withdraw: function(amount, date = new Date) {
     this.balance -= amount
     var withdrawal = {
+      type: "debit",
       amount: amount,
       date: this.convertDate(date)
     }
-    this.withdrawals.push(withdrawal)
+    this.transactions.push(withdrawal)
   },
 
   convertDay: function(date) {
