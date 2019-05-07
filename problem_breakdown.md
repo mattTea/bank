@@ -84,3 +84,11 @@ Initialise git and create github repo
 3. Deposit 100 makes balance = 100
 
 4. Deposit 100, then withdraw 40 makes balance = 60
+
+5. Records date of deposit
+
+6. Record date of withdrawal
+
+
+
+x. (Prevents withdrawal greater than balance?) no requirement to suggest this
