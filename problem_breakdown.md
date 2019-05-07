@@ -81,4 +81,6 @@ Initialise git and create github repo
 
 2. New bank account has a balance of 0
 
-3. 
+3. Deposit 100 makes balance = 100
+
+4. Deposit 100, then withdraw 40 makes balance = 60
