@@ -92,9 +92,7 @@ Initialise git and create github repo
 7. Print statement shows all activity on account
     - Break this down...
 
-    1. account.activity is an array
-    2. account.activity is of length deposits.length + withdrawals + length
-    3. actually, just join deposits and withdrawals into one 'transactions' array (with a type attribute for each)
+    1. account.transactions is an array (and now combines deposits and withdrawals)
     2. account.printStatement is ordered with newest first
 
 

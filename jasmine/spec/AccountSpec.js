@@ -21,7 +21,8 @@ describe("Account", function() {
   })
 
   it("records date of deposit", function() {
-    account.deposit(100, "06/05/2019")
+    var date = new Date("2019-05-06")
+    account.deposit(100, date)
     expect(account.transactions[0].date).toEqual("06/05/2019")
   })
 
@@ -38,5 +39,16 @@ describe("Account", function() {
     account.deposit(100, date1)
     account.withdraw(40, date2)
     expect(account.transactions.length).toEqual(2)
+  })
+  
+  it("lists all account activity on statement", function() {
+    var statement = "date || credit || debit || balance\n14/01/2012 || || 500.00 || 2500.00\n13/01/2012 || 2000.00 || || 3000.00\n10/01/2012 || 1000.00 || || 1000.00"
+    var date1 = new Date("2012-01-10")
+    var date2 = new Date("2012-01-13")
+    var date3 = new Date("2012-01-14")
+    account.deposit(1000, date1)
+    account.deposit(2000, date2)
+    account.withdraw(500, date3)
+    expect(account.printStatement()).toEqual(statement)
   })
 })
