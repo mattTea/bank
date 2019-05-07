@@ -20,8 +20,14 @@ describe("Account", function() {
     expect(account.balance).toEqual(60)
   })
 
-  it("Records date of deposit", function() {
-    account.deposit(100, "7th May 2019")
-    expect(account.deposits[0].date).toEqual("7th May 2019")
+  it("records date of deposit", function() {
+    account.deposit(100, "06/05/2019")
+    expect(account.deposits[0].date).toEqual("06/05/2019")
+  })
+
+  it("records date of withdrawal", function() {
+    account.deposit(100)
+    account.withdraw(40, "07/05/2019")
+    expect(account.withdrawals[0].date).toEqual("07/05/2019")
   })
 })
