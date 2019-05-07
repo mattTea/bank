@@ -90,5 +90,8 @@ Initialise git and create github repo
 6. Record date of withdrawal
 
 
+### Edge cases
 
-x. (Prevents withdrawal greater than balance?) no requirement to suggest this
+1. (Prevents withdrawal greater than balance?) no requirement to suggest this
+
+2. Protect against incorrect date formats

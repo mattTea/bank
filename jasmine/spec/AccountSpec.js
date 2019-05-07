@@ -26,8 +26,9 @@ describe("Account", function() {
   })
 
   it("records date of withdrawal", function() {
+    var date = new Date("2019-05-07");
     account.deposit(100)
-    account.withdraw(40, "07/05/2019")
+    account.withdraw(40, date)
     expect(account.withdrawals[0].date).toEqual("07/05/2019")
   })
 })
