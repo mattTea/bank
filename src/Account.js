@@ -8,25 +8,15 @@ Account.prototype = {
 
   deposit: function(amount, date = new Date) {
     this.balance += amount
-    var deposit = {
-      type: "credit",
-      amount: amount.toFixed(2),
-      date: this.convertDate(date),
-      balanceAfterTransaction: this.balance.toFixed(2)
-    }
-    this.transactions.push(deposit)
+    var transaction = this.createTransaction("credit", amount.toFixed(2), this.convertDate(date), this.balance.toFixed(2))
+    this.transactions.push(transaction)
     return this
   },
 
   withdraw: function(amount, date = new Date) {
     this.balance -= amount
-    var withdrawal = {
-      type: "debit",
-      amount: amount.toFixed(2),
-      date: this.convertDate(date),
-      balanceAfterTransaction: this.balance.toFixed(2)
-    }
-    this.transactions.push(withdrawal)
+    var transaction = this.createTransaction("debit", amount.toFixed(2), this.convertDate(date), this.balance.toFixed(2))
+    this.transactions.push(transaction)
     return this
   },
 
@@ -47,6 +37,16 @@ Account.prototype = {
     var month = this.convertMonth(date)
     var year = date.getFullYear()
     return `${day}/${month}/${year}`
+  },
+
+  createTransaction: function(type, amount, date, balanceAfterTransaction) {
+    var transaction = {
+      type: type,
+      amount: amount,
+      date: date,
+      balanceAfterTransaction: balanceAfterTransaction
+    }
+    return transaction
   },
 
   listTransactions: function() {

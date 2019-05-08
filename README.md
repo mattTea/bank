@@ -39,6 +39,8 @@ After forking and cloning repo,
 - run `npm test` to run tests in command line
 - run `npm run coverage` to run tests and see command line test coverage report
 
+- run `./node_modules/.bin/eslint path/to/file.js` to run linter
+
 ------
 
 ## To use app

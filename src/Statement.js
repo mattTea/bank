@@ -4,22 +4,23 @@ function Statement(account) {
 
 Statement.prototype = {
   constructor: Statement,
+  
   print: function() {
-    return this.build()
+    var statementRows = []
+    var that = this
+    this.account.listTransactions().forEach(function(transaction) {
+      statementRows.push(that.formatTransaction(transaction))
+    })
+    statementRows.push("date || credit || debit || balance")
+    return statementRows.reverse().join("\n")
   },
 
-  build: function() {
-    var statementRows = []
-    var transactions = this.account.listTransactions()
-    for (i in transactions) {
-      if (transactions[i].type === "credit") {
-        statementRows.push(`${transactions[i].date} || ${transactions[i].amount} || || ${transactions[i].balanceAfterTransaction}`)
-      } else {
-        statementRows.push(`${transactions[i].date} || || ${transactions[i].amount} || ${transactions[i].balanceAfterTransaction}`)
-      }
+  formatTransaction: function(transaction) {
+    if (transaction.type === "credit") {
+      return `${transaction.date} || ${transaction.amount} || || ${transaction.balanceAfterTransaction}`
+    } else {
+      return `${transaction.date} || || ${transaction.amount} || ${transaction.balanceAfterTransaction}`
     }
-    statementRows.push("date || credit || debit || balance")
-    return statementRows.reverse().join("\n") 
   }
 }
 
