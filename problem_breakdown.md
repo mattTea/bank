@@ -73,6 +73,17 @@ account | printStatement()
 - Use script tags to load them in `SpecRunner.html`
 - Open `SpecRunner.html`
 
+--OR--
+
+To install via npm and run tests via command line...
+
+- `npm install -g jasmine`
+- `jasmine init`
+OR
+- `npm install --save-dev jasmine`
+- `node node_modules/jasmine/bin/jasmine init`
+- run `npm test`
+
 
 ### Install ESLint
 
@@ -92,6 +103,7 @@ Linter for JS files [getting started link](https://eslint.org/docs/user-guide/ge
 - [npm link](https://www.npmjs.com/package/nyc)
 - [github link](https://github.com/istanbuljs/nyc)
 
+- run `npm run coverage` to see output
 
 ### Git
 

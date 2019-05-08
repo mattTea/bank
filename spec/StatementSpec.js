@@ -1,4 +1,6 @@
 /* eslint-disable */
+var Statement = require("../src/Statement")
+
 let account
 let statement
 

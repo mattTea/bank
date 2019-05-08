@@ -28,25 +28,36 @@ This JavaScript app simulates a simple bank, allowing a user to create an accoun
 
 2. `git clone git@github.com:<userName>/bank` onto your local machine
 
+3. run `npm install` to install all packages
+
 ------
 
 ## To run tests
 
-After forking and cloning repo, open the path to `SpecRunner.html` in your browser.
+After forking and cloning repo,
+
+- run `npm test` to run tests in command line
+- run `npm run coverage` to run tests and see command line test coverage report
 
 ------
 
 ## To use app
 
-Console commands are used to run the app
+1. Copy path of `index.html` and paste into address bar of browser
+2. Open dev tools
+3. Use console commands to interact with the app
 
 ```javascript
 account = new Account
+// => Account {balance: 0, transactions: Array(0)}
 
-account.deposit(100)
-account.withdraw(40)
-account.printStatement()
+account.deposit(100).withdraw(40)
+// => Account {balance: 60, transactions: Array(2)}
 
+statement = new Statement(account)
+// => Statement {account: Account}
+
+statement.print()
 // => "date || credit || debit || balance
 //    08/05/2019 || || 40.00 || 60.00
 //    08/05/2019 || 100.00 || || 100.00"

@@ -22,3 +22,5 @@ Statement.prototype = {
     return statementRows.reverse().join("\n") 
   }
 }
+
+module.exports = Statement

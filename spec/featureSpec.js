@@ -1,4 +1,7 @@
 /* eslint-disable */
+var Account = require("../src/Account")
+var Statement = require("../src/Statement")
+
 describe("Feature", function() {
   it("lists all account activity on statement", function() {
     var account = new Account

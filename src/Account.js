@@ -53,3 +53,5 @@ Account.prototype = {
     return this.transactions
   }
 }
+
+module.exports = Account

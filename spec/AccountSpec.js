@@ -1,4 +1,6 @@
 /* eslint-disable */
+var Account = require("../src/Account")
+
 describe("Account", function() {
   let account
   
