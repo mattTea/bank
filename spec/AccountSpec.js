@@ -52,6 +52,8 @@ describe("Account", function() {
     {type: "credit", amount: "2000.00", date: "13/01/2012", balanceAfterTransaction: "3000.00"},
     {type: "debit", amount: "500.00", date: "14/01/2012", balanceAfterTransaction: "2500.00"}]
     account.deposit(1000, date1).deposit(2000, date2).withdraw(500, date3)
-    expect(account.listTransactions()).toEqual(transactions)
+    expect(JSON.stringify(account.listTransactions())).toEqual(JSON.stringify(transactions))
+    // strange equality behaviour in Jasmine for objects and arrays, hence need to JSON.stringify()
+    // see https://github.com/jasmine/jasmine/issues/786
   })
 })

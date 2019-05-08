@@ -1,3 +1,5 @@
+var Account = require("./Account")
+
 function Statement(account) {
   this.account = account || new Account()
 }
