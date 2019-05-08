@@ -3,8 +3,8 @@ module.exports = {
         "browser": true,
         "es6": true
     },
-    // "extends": "eslint:recommended",
-    "extends": "eslint:all",
+    "extends": "eslint:recommended",
+    // "extends": "eslint:all",
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -14,8 +14,13 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
+        "func-names": "off",
         "indent": ["error", 2],
+        "no-undef": "off",
+        "object-shorthand": "off",
         "quotes": ["error", "double"],
-        "semi": "off"
+        "quote-props": "off",
+        "semi": "off",
+        "padded-blocks": "off"
     }
 };

@@ -15,6 +15,7 @@ Account.prototype = {
       balanceAfterTransaction: this.balance.toFixed(2)
     }
     this.transactions.push(deposit)
+    return this
   },
 
   withdraw: function(amount, date = new Date) {
@@ -26,6 +27,7 @@ Account.prototype = {
       balanceAfterTransaction: this.balance.toFixed(2)
     }
     this.transactions.push(withdrawal)
+    return this
   },
 
   convertDay: function(date) {
@@ -47,16 +49,7 @@ Account.prototype = {
     return `${day}/${month}/${year}`
   },
 
-  printStatement: function() {
-    var statementRows = []
-    for (var i = 0; i < this.transactions.length; i++) {
-      if (this.transactions[i].type === "credit") {
-        statementRows.push(`${this.transactions[i].date} || ${this.transactions[i].amount} || || ${this.transactions[i].balanceAfterTransaction}`)
-      } else {
-        statementRows.push(`${this.transactions[i].date} || || ${this.transactions[i].amount} || ${this.transactions[i].balanceAfterTransaction}`)
-      }
-    }
-    statementRows.push("date || credit || debit || balance")
-    return statementRows.reverse().join("\n")
+  listTransactions: function() {
+    return this.transactions
   }
 }

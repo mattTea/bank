@@ -1,3 +1,4 @@
+/* eslint-disable */
 describe("Account", function() {
   let account
   
@@ -23,14 +24,14 @@ describe("Account", function() {
   it("records date of deposit", function() {
     var date = new Date("2019-05-06")
     account.deposit(100, date)
-    expect(account.transactions[0].date).toEqual("06/05/2019")
+    expect(account.listTransactions()[0].date).toEqual("06/05/2019")
   })
 
   it("records date of withdrawal", function() {
     var date = new Date("2019-05-07")
     account.deposit(100, date)
     account.withdraw(40, date)
-    expect(account.transactions[1].date).toEqual("07/05/2019")
+    expect(account.listTransactions()[1].date).toEqual("07/05/2019")
   })
 
   it("adds deposit and withdrawal to transactions", function() {
@@ -38,17 +39,17 @@ describe("Account", function() {
     var date2 = new Date("2019-05-07")
     account.deposit(100, date1)
     account.withdraw(40, date2)
-    expect(account.transactions.length).toEqual(2)
+    expect(account.listTransactions().length).toEqual(2)
   })
-  
-  it("lists all account activity on statement", function() {
-    var statement = "date || credit || debit || balance\n14/01/2012 || || 500.00 || 2500.00\n13/01/2012 || 2000.00 || || 3000.00\n10/01/2012 || 1000.00 || || 1000.00"
+
+  it("lists all transactions", function() {
     var date1 = new Date("2012-01-10")
     var date2 = new Date("2012-01-13")
     var date3 = new Date("2012-01-14")
-    account.deposit(1000, date1)
-    account.deposit(2000, date2)
-    account.withdraw(500, date3)
-    expect(account.printStatement()).toEqual(statement)
+    var transactions = [{type: "credit", amount: "1000.00", date: "10/01/2012", balanceAfterTransaction: "1000.00"},
+    {type: "credit", amount: "2000.00", date: "13/01/2012", balanceAfterTransaction: "3000.00"},
+    {type: "debit", amount: "500.00", date: "14/01/2012", balanceAfterTransaction: "2500.00"}]
+    account.deposit(1000, date1).deposit(2000, date2).withdraw(500, date3)
+    expect(account.listTransactions()).toEqual(transactions)
   })
 })

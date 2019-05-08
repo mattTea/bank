@@ -82,7 +82,7 @@ Linter for JS files [getting started link](https://eslint.org/docs/user-guide/ge
 - `./node_modules/.bin/eslint --init`
 - Add some rules into the `eslintrc.js` file
 - Run per file using `./node_modules/.bin/eslint {yourfile}.js`
-- 
+- Run `./node_modules/.bin/eslint jasmine/src/Account.js --fix` to repair
 
 
 ### Install Istanbul(nyc)
