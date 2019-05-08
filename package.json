@@ -1,0 +1,23 @@
+{
+  "name": "bank",
+  "version": "1.0.0",
+  "description": "Bank - Tech Test practice =========================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattTea/bank.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattTea/bank/issues"
+  },
+  "homepage": "https://github.com/mattTea/bank#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "nyc": "^14.1.0"
+  }
+}

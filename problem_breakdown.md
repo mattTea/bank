@@ -54,9 +54,11 @@ account | printStatement()
 - JavaScript
 - Jasmine test framework
 
+------
+
 ## Setup
 
-Download and install Jasmine test runner
+### Download and install Jasmine test runner
 
 - [Jasmine standalone install](https://github.com/jasmine/jasmine#installation)
     - Download the standalone distribution for your desired release from the [releases](https://github.com/jasmine/jasmine/releases) page
@@ -72,8 +74,30 @@ Download and install Jasmine test runner
 - Open `SpecRunner.html`
 
 
+### Install ESLint
+
+Linter for JS files [getting started link](https://eslint.org/docs/user-guide/getting-started)
+
+- `npm install eslint --save-dev`
+- `./node_modules/.bin/eslint --init`
+- Add some rules into the `eslintrc.js` file
+- Run per file using `./node_modules/.bin/eslint {yourfile}.js`
+- 
+
+
+### Install Istanbul(nyc)
+
+- npm i nyc --save-dev
+- (not working)
+- [npm link](https://www.npmjs.com/package/nyc)
+- [github link](https://github.com/istanbuljs/nyc)
+
+
+### Git
+
 Initialise git and create github repo
 
+------
 
 ## Simple first steps to build first tests
 
@@ -101,3 +125,4 @@ Initialise git and create github repo
 1. (Prevents withdrawal greater than balance?) no requirement to suggest this
 
 2. Protect against incorrect date formats
+    - Passing incorrect data type into `deposit` and `withdraw` methods
