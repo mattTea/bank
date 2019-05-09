@@ -8,16 +8,24 @@ function Account() {
 Account.prototype = {
   constructor: Account,
 
-  deposit: function(amount, date = new Date) {
+  deposit: function(
+    amount,
+    date = new Date,
+    transaction = new Transaction("credit", amount.toFixed(2), this.convertDate(date), (this.balance + amount).toFixed(2))
+  )
+  {
     this.balance += amount
-    var transaction = new Transaction("credit", amount.toFixed(2), this.convertDate(date), this.balance.toFixed(2))
     this.transactions.push(transaction)
     return this
   },
 
-  withdraw: function(amount, date = new Date) {
+  withdraw: function(
+    amount,
+    date = new Date,
+    transaction = new Transaction("debit", amount.toFixed(2), this.convertDate(date), (this.balance - amount).toFixed(2))
+  ) 
+  {
     this.balance -= amount
-    var transaction = new Transaction("debit", amount.toFixed(2), this.convertDate(date), this.balance.toFixed(2))
     this.transactions.push(transaction)
     return this
   },
@@ -46,4 +54,6 @@ Account.prototype = {
   }
 }
 
-module.exports = Account
+if (typeof (module) !== "undefined") {
+  module.exports = Account
+}

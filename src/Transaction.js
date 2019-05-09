@@ -5,4 +5,6 @@ function Transaction(type, amount, date, balanceAfterTransaction) {
   this.balanceAfterTransaction = balanceAfterTransaction
 }
 
-module.exports = Transaction
+if (typeof (module) !== "undefined") {
+  module.exports = Transaction
+}

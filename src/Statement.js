@@ -26,4 +26,6 @@ Statement.prototype = {
   }
 }
 
-module.exports = Statement
+if (typeof (module) !== "undefined") {
+  module.exports = Statement
+}

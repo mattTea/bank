@@ -36,14 +36,19 @@ This JavaScript app simulates a simple bank, allowing a user to create an accoun
 
 After forking and cloning repo,
 
-- run `npm test` to run tests in command line
-- run `npm run coverage` to run tests and see command line test coverage report
+1. run `npm test` to run tests in command line
+2. run `npm run coverage` to run tests and see command line test coverage report
 
-- run `./node_modules/.bin/eslint path/to/file.js` to run linter
+3. run `./node_modules/.bin/eslint <path/to/file>.js` to run linter
 
 ------
 
 ## To use app
+
+**NOTE:** To run the app in the browser, it is necessary to comment out the `require(...)` line at the start of both `Account.js` and `Statement.js` files.
+This is because this is node.js (server side) syntax that cannot be used client side.
+
+Then...
 
 1. Copy path of `index.html` and paste into address bar of browser
 2. Open dev tools
